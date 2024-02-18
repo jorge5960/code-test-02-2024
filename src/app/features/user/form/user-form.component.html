@@ -1,0 +1,79 @@
+<div class="container-fluid text-center">
+    <div class="row align-items-center">
+        <div class="col offset-lg-4 col-lg-4 offset-md-3 col-md-6">
+            <div class="card">
+                <div class="card-body ">
+
+                    <form [formGroup]="formGroup">
+                        <div class="row form-field" [class.invalid]="hasErrors('userId')" #userIdRow>
+                            <label for="userIdRowLabel" class="col-sm-4 col-form-label col-form-label-sm text-end">User
+                                ID:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="userIdRowLabel" formControlName="userId">
+                                <span class="error" *ngIf="userIdRow.classList.contains('invalid')">
+                                    <span *ngIf="formGroup.get('userId').errors['required']">This field is
+                                        required</span>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="row form-field" [class.invalid]="hasErrors('firstName')" #firstNameRow>
+                            <label for="firstNameRowLabel"
+                                class="col-sm-4 col-form-label col-form-label-sm text-end">First
+                                Name:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="firstNameRowLabel"
+                                    formControlName="firstName">
+                                <span class="error" *ngIf="firstNameRow.classList.contains('invalid')">
+                                    <span *ngIf="formGroup.get('firstName').errors['required']">This field is
+                                        required</span>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="row form-field" [class.invalid]="hasErrors('lastName')" #lastNameRow>
+                            <label for="lastNameRowLabel"
+                                class="col-sm-4 col-form-label col-form-label-sm text-end">Last
+                                Name:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="lastNameRowLabel"
+                                    formControlName="lastName">
+                                <span class="error" *ngIf="lastNameRow.classList.contains('invalid')">
+                                    <span *ngIf="formGroup.get('lastName').errors['required']">This field is
+                                        required</span>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="row form-field" [class.invalid]="hasErrors('email')" #emailRow>
+                            <label for="emailRowLabel"
+                                class="col-sm-4 col-form-label col-form-label-sm text-end">Email:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="emailRowLabel" formControlName="email">
+                                <span class="error" *ngIf="emailRow.classList.contains('invalid')">
+                                    <span *ngIf="formGroup.get('email').errors['email']">Enter a valid e-mail</span>
+                                    <span *ngIf="formGroup.get('email').errors['required']">This field is
+                                        required</span>
+                                </span>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-auto">
+                    <button type="button" class="btn btn-outline-primary" (click)="createUser()">Add</button>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-outline-primary" (click)="updateUser()">Update</button>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteUser()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

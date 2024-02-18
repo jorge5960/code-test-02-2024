@@ -1,0 +1,10 @@
+<ng-container *ngIf="{
+        users: users$ | async,
+        isLoading: isLoading$ | async
+    } as data">
+    <div class="dashboard">
+        <user-list [users]="data.users" (onSelectionChange)="onSelectionChange($event)"></user-list>
+        <user-form [selected]="selected"></user-form>
+    </div>
+    <loader [show]="data.isLoading"></loader>
+</ng-container>

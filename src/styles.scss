@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif, "Helvetica Neue";
+    background: #f1f4f6;
+}
+.dashboard {
+    margin-top: 2rem;
+    @include media-breakpoint-up(md) {
+        margin-top: 4rem;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-top: 5rem;
+    }
+    .row {
+        &.form-field {
+            margin-bottom: 1rem;
+            span.error {
+                display: flex;
+                color: red;
+                font-size: 0.75rem;
+            }
+        }
+        &.invalid {
+            input {
+                border-color: var(--bs-danger-border-subtle);
+            }
+        }
+    }
+    .table>tbody>tr:hover>* {
+        --bs-table-color-state: var(--bs-table-hover-color);
+        --bs-table-bg-state: var(--bs-table-hover-bg);
+        cursor: pointer;
+    }
+    tr.selected>* {
+        background-color: #e0f3ff;
+    }
+    th[sortable] {
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    th[sortable]:before {
+        content: "";
+        display: block;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4xIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTE0NS42IDcuN0MxNDEgMi44IDEzNC43IDAgMTI4IDBzLTEzIDIuOC0xNy42IDcuN2wtMTA0IDExMmMtNi41IDctOC4yIDE3LjItNC40IDI1LjlTMTQuNSAxNjAgMjQgMTYwSDgwVjM1MkgyNGMtOS41IDAtMTguMiA1LjctMjIgMTQuNHMtMi4xIDE4LjkgNC40IDI1LjlsMTA0IDExMmM0LjUgNC45IDEwLjkgNy43IDE3LjYgNy43czEzLTIuOCAxNy42LTcuN2wxMDQtMTEyYzYuNS03IDguMi0xNy4yIDQuNC0yNS45cy0xMi41LTE0LjQtMjItMTQuNEgxNzZWMTYwaDU2YzkuNSAwIDE4LjItNS43IDIyLTE0LjRzMi4xLTE4LjktNC40LTI1LjlsLTEwNC0xMTJ6Ii8+PC9zdmc+') no-repeat;
+        background-size: 0.5rem;
+        width: 1.375rem;
+        height: 1.375rem;
+        margin-left: -0.938rem;
+        margin-top: 0.125rem;
+        position: absolute;
+    }
+    th[sortable].desc:before,
+    th[sortable].asc:before {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC') no-repeat;
+        background-size: 1.375rem;
+        width: 1.375rem;
+        height: 1.375rem;
+        float: left;
+        margin-left: -1.375rem;
+        position:relative;
+        margin-top:0rem;
+    }
+    th[sortable].desc:before {
+        transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+    }
+    .card {
+        background: #fff;
+        min-height: 3.125rem;
+        box-shadow: none;
+        border: 0;
+        position: relative;
+        margin-bottom: 1.5rem;
+        border-radius: 0.625rem;
+        margin-top: 1.5rem;
+        overflow-y: auto;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(26,54,126,.125);
+        border-radius: 0.25rem;
+        box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,.03), 0 0.9375rem 1.40625rem rgba(4,9,20,.03), 0 0.25rem 0.53125rem rgba(4,9,20,.05), 0 0.125rem 0.1875rem rgba(4,9,20,.03);
+    }
+}
+.mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: rgba(0, 61, 165, 0.2);
+    height: auto !important;
+    z-index: 9999;
+    & .center {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        .custom-loader {
+            width:50px;
+            height:24px;
+            background: 
+              radial-gradient(circle closest-side,#FFC107 90%,#0000) 0%   50%,
+              radial-gradient(circle closest-side,#FFC107 90%,#0000) 50%  50%,
+              radial-gradient(circle closest-side,#FFC107 90%,#0000) 100% 50%;
+            background-size:calc(100%/3) 12px;
+            background-repeat: no-repeat;
+            animation:d3 1s infinite linear;
+          }
+          @keyframes d3 {
+              20%{background-position:0%   0%, 50%  50%,100%  50%}
+              40%{background-position:0% 100%, 50%   0%,100%  50%}
+              60%{background-position:0%  50%, 50% 100%,100%   0%}
+              80%{background-position:0%  50%, 50%  50%,100% 100%}
+          }
+    }
+}
